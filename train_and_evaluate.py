@@ -18,3 +18,9 @@ def train_and_evaluate():
 
     # B2: Build the Random Forest algorithm
     rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
+
+    # B3: Train the Random Forest algorithm
+    rf_model.fit(X_train, y_train)
+
+    # Make predictions
+    y_pred = rf_model.predict(X_test)
