@@ -1,16 +1,8 @@
-<strong> **DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. ** </strong>
-
-# WESTERN GOVERNORS UNIVERSITY
-
-## D683 – ADVANCED AI AND ML
+# HVAC and Air Quality Predictive Model
 
 ---
 
-# Commercial HVAC and Air Quality Predictive Model
-
----
-
-## C1: System Used For Development and Software Requirements
+## System Used For Development and Software Requirements
 ### Hardware Requirements
 - **System**: Dell Latitude 5410 Laptop | or equivalent
 - **Processor**: Intel(R) Core(TM) i7-10810U CPU @ 1.10GHz (1.61 GHz) | or equivalent
@@ -29,7 +21,7 @@
 
 ---
 
-## C2: Instructions to Run the AI/ML Application
+## Instructions to Run the AI/ML Application
 
 ### 1. Environment Setup
 Clone the repository and install required packages:
