@@ -11,7 +11,7 @@ from sklearn.metrics import (
     recall_score,
 )
 from sklearn.model_selection import train_test_split
-
+from inference_actions import generate_hvac_action
 
 def train_and_evaluate():
     # Load preprocessed dataset
@@ -56,7 +56,7 @@ def train_and_evaluate():
         print(f"  MAE:       {mae:.4f}")
         print(f"  RMSE:      {rmse:.4f}")
 
-    # Binned Classification Metrics for Rubric Completeness (High Load Threshold >= Median)
+    # Classification Metrics
     print("\n" + "=" * 50)
     print("CLASSIFICATION METRICS (High Demand Threshold Evaluation)")
     print("=" * 50)
@@ -76,7 +76,33 @@ def train_and_evaluate():
         print(f"  Precision: {prec:.4f}")
         print(f"  Recall:    {rec:.4f}")
         print(f"  F1 Score:  {f1:.4f}")
+    # ==================================================
+    # SIMULATED LIVE INFERENCE & ACTIONABLE OUTPUT
+    # ==================================================
+    print("\n" + "=" * 50)
+    print("ACTIONABLE HVAC OPTIMIZATIONS (Simulated Live Run)")
+    print("=" * 50)
 
+    # Grab the first building from the test set
+    sample_index = 0
+    sample_heating_pred = y_pred[sample_index, 0]  # First column is Heating
+    sample_cooling_pred = y_pred[sample_index, 1]  # Second column is Cooling
+    sample_co2 = X_test.iloc[sample_index]['CO2_ppm'] # Grab the synthetic CO2 we made
+
+    # Call the function
+    actions = generate_hvac_action(
+        predicted_heating=sample_heating_pred,
+        predicted_cooling=sample_cooling_pred,
+        current_co2=sample_co2
+    )
+
+    # Print the results
+    print(f"Predicted Heating Load: {sample_heating_pred:.2f}")
+    print(f"Predicted Cooling Load: {sample_cooling_pred:.2f}")
+    print(f"Current CO2 Level: {sample_co2} ppm\n")
+
+    for action in actions:
+        print(f"-> {action}")
 
 if __name__ == "__main__":
     train_and_evaluate()
