@@ -1,0 +1,17 @@
+{
+  "building_profile": {
+    "relative_compactness": 0.76,
+    "surface_area": 673.75,
+    "wall_area": 318.5,
+    "roof_area": 177.62,
+    "overall_height": 7.0,
+    "orientation": 2,
+    "glazing_area": 0.25,
+    "glazing_area_distribution": 3
+  },
+  "operational_thresholds": {
+    "co2_baseline_ppm": 400,
+    "co2_max_acceptable_ppm": 1000,
+    "target_temp_celsius": 22.0
+  }
+}
