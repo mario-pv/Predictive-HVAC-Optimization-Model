@@ -17,6 +17,14 @@ def train_and_evaluate():
     # Load preprocessed dataset
     df = pd.read_csv("preprocessed_energy_efficiency.csv")
 
+    # --- NEW IAQ LOGIC START ---
+    np.random.seed(42) # Ensures the model trains on the exact same synthetic data every time
+    df['CO2_ppm'] = np.random.randint(400, 1205, size=len(df))
+
+    # Artificially increase the required Cooling Load for every 100 ppm over the 400 baseline
+    df['Cooling_Load'] = df['Cooling_Load'] + ((df['CO2_ppm'] - 400) / 100) * 0.35
+    # --- NEW IAQ LOGIC END ---
+
     X = df.drop(columns=["Heating_Load", "Cooling_Load"])
     y = df[["Heating_Load", "Cooling_Load"]]
 
